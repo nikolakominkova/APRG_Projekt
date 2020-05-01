@@ -1,7 +1,7 @@
 import inputs as inp
 import encryption as enc
 import decryption as dec
-
+import pyglet
 
 def option():
     """This let user choose the operation and insert the message."""
@@ -121,17 +121,18 @@ def main():
         encrypt, decrypt = enc_dec(message)
         print("Zašifrovaná zpráva: ", encrypt)
         print("Dešifrovaná zpráva: ", decrypt)
-    import pyglet
-    window = pyglet.window.Window()
-    label = pyglet.text.Label("def main()",
+        
+# """This make pyglet graphics library."""    
+window = pyglet.window.Window()
+label = pyglet.text.Label("def main()",
                           font_name='Arial',
                           font_size=36,
                           x=window.width//2, y=window.height//2,
                           anchor_x='center', anchor_y='center')
-    @window.event
-    def on_draw():
-        window.clear()
-        label.draw()
-        pyglet.app.run()
+@window.event
+def on_draw():
+    window.clear()
+    label.draw()
+    pyglet.app.run()
 
 main()
